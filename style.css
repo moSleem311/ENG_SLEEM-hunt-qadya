@@ -1,0 +1,178 @@
+/* إضافة خلفية للصفحة */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-size: cover; /* لجعل الصورة تغطي الصفحة */
+  color: #333;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* الحاوية الرئيسية */
+.game-container {
+  max-width: 700px;
+  width: 90%; /* لضمان التكيف مع الشاشات الصغيرة */
+  background-color: rgba(246, 241, 241, 0.8); /* خلفية شفافة للحاوية */
+  padding: 20px; /* تقليل الحشو للتجاوب */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 5px solid #ad0f0f;
+}
+
+/* العنوان */
+.header {
+  margin-bottom: 0px;
+}
+
+.logo {
+  width: 150px; /* جعل الشعار يتكيف مع العرض */
+  height: auto; /* الحفاظ على النسبة */
+  margin-bottom: -15px;
+}
+
+h1 {
+  font-size: 2rem; /* تقليل الحجم للتجاوب */
+  color: #dd1010;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* قسم الأسئلة */
+.question {
+  font-size: 1.5rem; /* تقليل الحجم للتجاوب */
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* الأزرار */
+.options {
+  display: grid; /* استخدام شبكة */
+  grid-template-columns: 1fr 1fr; /* تقسيم إلى عمودين */
+  gap: 10px; /* تقليل المسافة بين الأزرار */
+}
+
+.option {
+  padding: 10px; /* تقليل الحشو */
+  font-size: 1rem; /* تقليل الحجم للتجاوب */
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #ad0f0f, #e50000); /* لون متدرج */
+  border: 2px solid #a00000; /* لون داكن للإطار */
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل للأزرار */
+  transition: all 0.3s ease-in-out; /* انتقال ناعم عند التمرير */
+}
+
+.option:hover {
+  transform: scale(1.05); /* تكبير الزر قليلاً */
+  background: linear-gradient(90deg, #e50000, #ad0f0f); /* عكس التدرج */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* زيادة الظل عند التمرير */
+}
+
+.option:active {
+  transform: scale(0.95); /* تصغير الزر عند النقر */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* تأثير ضغط */
+}
+
+/* الزر المحدد */
+.option.selected {
+  background-color: #ffc107; /* لون أصفر */
+  color: #333; /* لون النص */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+  border-color: #ffc107; /* لون الإطار */
+  transform: scale(1.05); /* تأثير التكبير */
+}
+
+.correct {
+  background: linear-gradient(90deg, #28a745, #4caf50) !important; /* لون متدرج أخضر */
+  color: white;
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.5); /* ظل للإجابة الصحيحة */
+}
+
+.wrong {
+  background: linear-gradient(90deg, #ff0202, #f50505) !important; /* لون متدرج أحمر */
+  color: white;
+  box-shadow: 0 6px 15px rgba(255, 87, 51, 0.5); /* ظل للإجابة الخاطئة */
+}
+
+/* زر الفعل */
+.button {
+  padding: 10px 20px; /* تقليل الحشو للتجاوب */
+  font-size: 1rem; /* تقليل الحجم */
+  color: #fff;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ad0f0f, #e50000); /* لون متدرج */
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل للزر */
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #e50000, #ad0f0f); /* عكس التدرج */
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* زيادة الظل عند التمرير */
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .question {
+    font-size: 1.2rem;
+  }
+
+  .option {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .question {
+    font-size: 1rem;
+  }
+
+  .option {
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+
+  .button {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
